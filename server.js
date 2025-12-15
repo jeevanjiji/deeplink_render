@@ -1,11 +1,9 @@
 const express = require("express");
 const app = express();
 
-const APP_SCHEME = "pixelxracer://open";
-const PLAY_STORE =
-  "https://play.google.com/store/apps/details?id=com.pixel.pixelxracer.pixelracer&hl=en_IN";
-const APP_STORE =
-  "https://apps.apple.com/us/app/pixel-x-racer/id6468572363";
+const APP_SCHEME ="pixelxracer://open?DelearShip";
+const PLAY_STORE ="https://play.google.com/store/apps/details?id=com.pixel.pixelxracer.pixelracer&hl=en_IN";
+const APP_STORE ="https://apps.apple.com/us/app/pixel-x-racer/id6468572363";
 
 app.get("/open", (req, res) => {
   res.set("Content-Type", "text/html");
