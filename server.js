@@ -5,7 +5,7 @@ const APP_SCHEME ="pixelxracer://iap?";
 const PLAY_STORE ="https://play.google.com/store/apps/details?id=com.pixel.pixelxracer.pixelracer&hl=en_IN";
 const APP_STORE ="https://apps.apple.com/us/app/pixel-x-racer/id6468572363";
 
-app.get("/open", (req, res) => {
+app.get("/iap", (req, res) => {
   res.set("Content-Type", "text/html");
 
   res.send(`
