@@ -39,9 +39,9 @@ const createRedirectHandler = (appScheme) => (req, res) => {
 };
 
 app.get("/iap", createRedirectHandler("pixelxracer://iap"));
-app.get("/home", createRedirectHandler("pixelxracer://home"));
-app.get("/level", createRedirectHandler("pixelxracer://level"));
-app.get("/shop", createRedirectHandler("pixelxracer://shop"));
+app.get("/dealership", createRedirectHandler("pixelxracer://dealership"));
+app.get("/garage", createRedirectHandler("pixelxracer://garage"));
+app.get("/gamemodes", createRedirectHandler("pixelxracer://gamemodes"));
 
 app.listen(3000, () => {
   console.log("Deep link redirect running on port 3000");
