@@ -1,11 +1,10 @@
 const express = require("express");
 const app = express();
 
-const APP_SCHEME ="pixelxracer://iap?";
 const PLAY_STORE ="https://play.google.com/store/apps/details?id=com.pixel.pixelxracer.pixelracer&hl=en_IN";
 const APP_STORE ="https://apps.apple.com/us/app/pixel-x-racer/id6468572363";
 
-app.get("/iap", (req, res) => {
+const createRedirectHandler = (appScheme) => (req, res) => {
   res.set("Content-Type", "text/html");
 
   res.send(`
@@ -25,7 +24,7 @@ app.get("/iap", (req, res) => {
     if (document.hidden) opened = true;
   });
 
-  window.location.replace("${APP_SCHEME}");
+  window.location.replace("${appScheme}");
 
   setTimeout(() => {
     if (!opened) {
@@ -37,7 +36,12 @@ app.get("/iap", (req, res) => {
 </body>
 </html>
   `);
-});
+};
+
+app.get("/iap", createRedirectHandler("pixelxracer://iap"));
+app.get("/home", createRedirectHandler("pixelxracer://home"));
+app.get("/level", createRedirectHandler("pixelxracer://level"));
+app.get("/shop", createRedirectHandler("pixelxracer://shop"));
 
 app.listen(3000, () => {
   console.log("Deep link redirect running on port 3000");
